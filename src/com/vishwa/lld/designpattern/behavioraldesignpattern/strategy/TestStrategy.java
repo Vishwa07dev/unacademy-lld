@@ -2,16 +2,15 @@ package com.vishwa.lld.designpattern.behavioraldesignpattern.strategy;
 
 public class TestStrategy {
 
-  /**
-   * How we can use multiple strategies
-   * @param args
-   */
   public static void main(String[] args) {
-    Product product = new Product("Phone" , 1234);
+    Product product = new Product("Phone", 1234);
 
-    AmazonCart amazonCart = new AmazonCart(new PhonePay(), product);
+    /**
+     * Test strategy is the client
+     * He can decide which wallet to use
+     */
+    AmazonCart amazonCart = new AmazonCart(new PhonePay() , product );
 
-    amazonCart.pay(1234);
-
+    amazonCart.pay();
   }
 }

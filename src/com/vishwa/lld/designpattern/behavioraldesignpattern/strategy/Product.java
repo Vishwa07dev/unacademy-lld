@@ -2,12 +2,12 @@ package com.vishwa.lld.designpattern.behavioraldesignpattern.strategy;
 
 public class Product {
 
-  private String name;
-  private double price;
+  private String name ;
+  private int cost;
 
-  public Product(String name, double price) {
+  public Product(String name, int value) {
     this.name = name;
-    this.price = price;
+    this.cost = value;
   }
 
   public String getName() {
@@ -18,11 +18,11 @@ public class Product {
     this.name = name;
   }
 
-  public double getPrice() {
-    return price;
+  public int getCost() {
+    return cost;
   }
 
-  public void setPrice(double price) {
-    this.price = price;
+  public void setCost(int cost) {
+    this.cost = cost;
   }
 }

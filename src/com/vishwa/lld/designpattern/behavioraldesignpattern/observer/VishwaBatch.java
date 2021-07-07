@@ -4,46 +4,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class VishwaBatch implements VishwaSesssion{
+public class VishwaBatch implements VishwaSession{
+  private List<ObserverStudent> registeredStudents ;
 
-  private List<ObserverStudent> studentsObservers ;
   private String studyTopic ;
 
   public VishwaBatch() {
-    this.studentsObservers = new ArrayList<>();
+    /**
+     * In the begining there will be no students
+     */
+    this.registeredStudents = new ArrayList<>();
   }
 
   @Override
-  public void register(ObserverStudent obj) {
-    System.out.println("registering student ");
-    this.studentsObservers.add(obj);
+  public void register(ObserverStudent student) {
+    System.out.println("Registering student "+ student.getName());
+    this.registeredStudents.add(student);
   }
 
   @Override
-  public void unregister(ObserverStudent obj) {
-    this.studentsObservers.remove(obj);
+  public void unregister(ObserverStudent student) {
+    System.out.println("Removing student with name : "+ student.getName());
   }
 
+  /**
+   * Method to notify all the registered students about a new class
+   */
   @Override
   public void notifyObservingStudents() {
-    for(ObserverStudent student : studentsObservers ){
-      student.update();
-    }
+     for(ObserverStudent student : registeredStudents){
+       student.update();
+     }
   }
 
+  /**
+   * Student will be calling this method to know the session details
+   *
+   * @param student
+   * @return
+   */
   @Override
-  public Object getUpdate(ObserverStudent obj) {
-    if(studentsObservers.contains(obj)){
-      return this.studyTopic ;
+  public String getUpdate(ObserverStudent student) {
+    /**
+     * Check if the student is registered
+     */
+    if(registeredStudents.contains(student)){
+      return this.studyTopic;
     }
-    return null ;
+    return null;
   }
 
+  /**
+   *  A method to update the topics of discussion every session
+   */
 
   public void addStudyTopic(String studyTopic){
-
     System.out.println("Added the study topic : "+ studyTopic);
-    this.studyTopic = studyTopic;
+    this.studyTopic= studyTopic;
+    /**
+     * Notify all the users
+     */
     notifyObservingStudents();
   }
 }

@@ -1,6 +1,5 @@
 package com.vishwa.lld.designpattern.behavioraldesignpattern.strategy;
 
-public interface WalletStartegy {
-
-  public void pay(int amount) ;
+public interface WalletStrategy {
+  public void pay(int amount);
 }

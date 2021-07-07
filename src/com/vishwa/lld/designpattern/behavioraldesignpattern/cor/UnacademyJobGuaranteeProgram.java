@@ -1,17 +1,23 @@
 package com.vishwa.lld.designpattern.behavioraldesignpattern.cor;
 
-public class Test {
+public class UnacademyJobGuaranteeProgram {
 
   public static void main(String[] args) {
-    FangJob fangJob = new FangJob();
-    ProductJob productJob = new ProductJob();
-    ServiceJob serviceJob = new ServiceJob();
+    FaangJob faangJob = new FaangJob();
 
-    fangJob.setNextChain(productJob);
+    ProductJob productJob = new ProductJob();
+
+    ServiceJob serviceJob = new ServiceJob();
+    /**
+     * faang -> product --> service
+     */
+    faangJob.setNextChain(productJob);
+
     productJob.setNextChain(serviceJob);
 
-    Person person = new Person("FAANG");
+    Person person = new Person("NOTHING");
 
-    fangJob.getJob(person);
+    faangJob.getJob(person);
+
   }
 }

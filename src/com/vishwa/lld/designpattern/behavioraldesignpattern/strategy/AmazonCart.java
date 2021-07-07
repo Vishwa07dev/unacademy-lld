@@ -2,16 +2,16 @@ package com.vishwa.lld.designpattern.behavioraldesignpattern.strategy;
 
 public class AmazonCart {
 
-  private WalletStartegy _walletStartegy;
+  private WalletStrategy _walletStrategy ;
 
-  private Product _product ;
+  private Product _product;
 
-  public AmazonCart(WalletStartegy walletStartegy, Product product) {
-    _walletStartegy = walletStartegy;
+  public AmazonCart(WalletStrategy walletStrategy, Product product) {
+    _walletStrategy = walletStrategy;
     _product = product;
   }
 
-  public void pay(int amount){
-    this._walletStartegy.pay(amount);
+  public void pay(){
+    this._walletStrategy.pay(_product.getCost());
   }
 }

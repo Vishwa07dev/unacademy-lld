@@ -6,6 +6,8 @@ public class MangoPeople {
 
     /**
      * Basic car
+     *
+     * new OuterClass.Innerclass()
      */
     Car car = new Car.
         CarBuilder("SW","M","B").build();
